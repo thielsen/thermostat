@@ -1,16 +1,32 @@
+<!DOCTYPE html>
 <html>
-<head>
-  <h1> Thermostat </h1>
-</head>
-<body>
-  <h2>id="temp"</h2>
-  <h2>id="powersaving"</h2>
-  <button id="up">+</button>
-  <button id="down">-</button>
-  <button id="reset">reset</button>
-  <button id="on">ON</button>
-  <button id="off">OFF</button>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="src/thermostat.js"></script>
-</body>
+  <head>
+    <title>Thermostat</title>
+  </head>
+  <body>
+    <section>
+      <h1>Outside temp: <span id="outside"></span></h1>
+      <h1>Thermostat temp: <span id="temp"></span></h1>
+      <p>
+        power saving mode is <span id="powersaving">on</span><br>
+        <br>
+        <button id="up">+</button>
+        <button id="down">-</button>
+        <button id="reset">reset</button><br>
+        <br>
+        <button id="on">Powersaving on</button>
+        <button id="off">Powersaving off</button><br>
+        <br>
+        <section>
+          <form id="city">
+            <input id="city" type="text" placeholder="Choose city"></input>
+            <input type="submit"></input>
+          </form>
+        </section>
+      </p>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="src/thermostat.js"></script>
+    <script src="src/thermostat_ui.js"></script>
+  </body>
 </html>
