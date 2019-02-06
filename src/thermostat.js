@@ -40,4 +40,18 @@ Thermostat.prototype.setPowerSaving = function(state) {
   } else {
     this.powerSaving = true;
   }
-}
+};
+
+Thermostat.prototype.reset = function() {
+  this.temp = 20;
+};
+
+Thermostat.prototype.getUsage = function() {
+  if (this.temp < 18) {
+    return 'low-usage';
+  } else if (this.temp > 24) {
+    return 'high-usage';
+  } else {
+    return 'medium-usage';
+  }
+};

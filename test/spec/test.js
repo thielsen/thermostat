@@ -58,4 +58,30 @@ describe('Thermostat', function () {
     expect(thermostat.getTemp()).toEqual(32);
   });
 
+  it('can be reset to 20 with reset fuction ', function () {
+    thermostat.up();
+    thermostat.reset();
+    expect(thermostat.getTemp()).toEqual(20);
+  });
+
+  it('returns low-usage when temp is less that 18', function () {
+    var i;
+    for (i = 0; i <=3; i++ ) {
+      thermostat.down();
+    }
+    expect(thermostat.getUsage()).toEqual('low-usage');
+  });
+
+  it('returns medium-usage when temp is between 18 and 24', function () {
+    expect(thermostat.getUsage()).toEqual('medium-usage');
+  });
+
+  it('returns high-usage when temp is more then 24', function () {
+    var i;
+    for (i = 0; i <=5; i++ ) {
+      thermostat.up();
+    }
+    expect(thermostat.getUsage()).toEqual('high-usage');
+  });
+
 });
