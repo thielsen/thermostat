@@ -32,15 +32,25 @@ $('#off').on('click', function() {
   $('#powersaving').text(thermostat.isPowerSaving());
 });
 
-$.get('http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=7f7477e7139dbac56556a0cb7558324e&units=metric', function(data) {
+$.get('http://api.openweathermap.org/data/2.5/weather?q=London&appid=7f7477e7139dbac56556a0cb7558324e&units=metric', function(data) {
   $('#outside').text(data.main.temp);
 });
 
+// $( document ).ajaxError(function() {
+//   alert("Triggered ajaxError handler.");
+// });
+
+var temp = function(data) {
+  $('#outside').text(data.main.temp);
+    alert(data)
+};
+
 $('#city').submit(function(event) {
-  var city = $('#city').val();
-  console.log(city)
-  $.get('http://api.openweathermap.org/data/2.5/weather?" + city + "&appid=7f7477e7139dbac56556a0cb7558324e&units=metric', function(data) {
+  var chosencity = $('#inputcity').val();
+  var input = 'http://api.openweathermap.org/data/2.5/weather?q=London&appid=7f7477e7139dbac56556a0cb7558324e&units=metric'
+  $.get(input, function(data) {
     $('#outside').text(data.main.temp);
+    alert(data)
   });
 });
 
